@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import { ButtonHTMLAttributes } from "react";
 
-const Button = ({ children }: { children: ReactNode }) => {
-  return <button>{children}</button>;
+const Button = (props: ButtonHTMLAttributes<HTMLButtonElement>) => {
+  return <button {...props} />;
 };
 
 export default Button;
