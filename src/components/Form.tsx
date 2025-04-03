@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
+import axios from "axios";
 
 const Form = () => {
   const [inputValue, setInputValue] = useState("");
@@ -10,10 +11,10 @@ const Form = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           "https://jsonplaceholder.typicode.com/todos?_limit=5"
         );
-        const data = await response.json();
+        const data = await response.data;
         const titles = data.map((item: { title: string }) => item.title);
         setSubmittedValues(titles);
       } catch (error) {
